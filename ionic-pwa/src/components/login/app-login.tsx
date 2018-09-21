@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, State } from '@stencil/core';
 import { Action, Store } from '@stencil/redux';
 import { UserState } from '../../reducers/user.reducer';
 import { loginApi } from '../../singletons/singleton';
@@ -10,7 +10,7 @@ import { fromPromise } from 'rxjs/internal-compatibility';
 })
 export class AppLogin {
     @Prop({ connect: 'ion-router'}) nav: HTMLIonRouterElement;
-    @Prop() username = '';
+    @State() username = '';
     @Prop({context: 'store'}) store: Store;
     loginAction: Action;
 
@@ -29,7 +29,7 @@ export class AppLogin {
             </ion-header>,
             <ion-content padding>
                 <ion-item>
-                    <ion-input required type="text" placeholder="username" value={this.username}></ion-input>
+                    <ion-input required type="text" placeholder="username" value={this.username} onInput={this.updateUsername}></ion-input>
                 </ion-item>
                 <ion-button onClick={this.login} expand="block">Login</ion-button>
                 {/*<ion-button href="/rooms" expand="block">Rooms page</ion-button>*/}
@@ -37,13 +37,19 @@ export class AppLogin {
         ];
     }
 
+  updateUsername = (event) => {
+      this.username = event.target.value;
+      console.log(this.username);
+  }
+
     async redirectToRoom() {
       const navCtrl: HTMLIonRouterElement = await (this.nav as any).componentOnReady();
       navCtrl.push('/rooms');
     }
 
     login = () => {
-      loginApi.login('thomas')
+      console.log('beroucry le fou ', this.username);
+      loginApi.login(this.username)
         .pipe(
           tap((user) =>  this.loginAction(user)),
           mergeMap(() => fromPromise(this.redirectToRoom()))

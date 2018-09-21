@@ -10,7 +10,7 @@ export namespace UserState {
       case types.AUTH_LOGIN:
         return {
           ...state,
-          user: action.payload,
+          user: action.payload.name,
           connected: true
         };
       case types.AUTH_LOGOUT:
