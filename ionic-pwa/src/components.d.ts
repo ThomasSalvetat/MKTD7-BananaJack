@@ -9,9 +9,12 @@ import '@stencil/core';
 import '@stencil/redux';
 import '@ionic/core';
 import 'ionicons';
+<<<<<<< HEAD
 import {
   Card,
 } from './model';
+=======
+>>>>>>> create login api service
 
 
 export namespace Components {
@@ -28,6 +31,7 @@ export namespace Components {
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
+<<<<<<< HEAD
 
   interface CardDetail {
     'card': Card;
@@ -42,6 +46,8 @@ export namespace Components {
   interface CardsListAttributes extends StencilHTMLAttributes {
     'cards'?: Card[];
   }
+=======
+>>>>>>> create login api service
 }
 
 declare global {
@@ -49,16 +55,22 @@ declare global {
     'AppLogin': Components.AppLogin;
     'AppRooms': Components.AppRooms;
     'AppRoot': Components.AppRoot;
+<<<<<<< HEAD
     'CardDetail': Components.CardDetail;
     'CardsList': Components.CardsList;
+=======
+>>>>>>> create login api service
   }
 
   interface StencilIntrinsicElements {
     'app-login': Components.AppLoginAttributes;
     'app-rooms': Components.AppRoomsAttributes;
     'app-root': Components.AppRootAttributes;
+<<<<<<< HEAD
     'card-detail': Components.CardDetailAttributes;
     'cards-list': Components.CardsListAttributes;
+=======
+>>>>>>> create login api service
   }
 
 
@@ -80,6 +92,7 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+<<<<<<< HEAD
   interface HTMLCardDetailElement extends Components.CardDetail, HTMLStencilElement {}
   var HTMLCardDetailElement: {
     prototype: HTMLCardDetailElement;
@@ -92,20 +105,28 @@ declare global {
     new (): HTMLCardsListElement;
   };
 
+=======
+>>>>>>> create login api service
   interface HTMLElementTagNameMap {
     'app-login': HTMLAppLoginElement
     'app-rooms': HTMLAppRoomsElement
     'app-root': HTMLAppRootElement
+<<<<<<< HEAD
     'card-detail': HTMLCardDetailElement
     'cards-list': HTMLCardsListElement
+=======
+>>>>>>> create login api service
   }
 
   interface ElementTagNameMap {
     'app-login': HTMLAppLoginElement;
     'app-rooms': HTMLAppRoomsElement;
     'app-root': HTMLAppRootElement;
+<<<<<<< HEAD
     'card-detail': HTMLCardDetailElement;
     'cards-list': HTMLCardsListElement;
+=======
+>>>>>>> create login api service
   }
 
 

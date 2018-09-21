@@ -1,6 +1,6 @@
-import {Component, Prop} from '@stencil/core';
+import { loginApi } from '../singletons/singleton';
 
-// import BackendApi from '../api';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
     tag: 'app-login'
@@ -12,16 +12,25 @@ export class AppLogin {
     componentWillLoad() {
         // console.log('login', BackendApi.login('username'));
     }
+
     render() {
         return [
-          <app-header title="Login"></app-header>,,
-          <ion-content padding>
-            <ion-item>
-              <ion-input required type="text" placeholder="username" value={this.username}></ion-input>
-            </ion-item>
-            <ion-button expand="block">Login</ion-button>
-            {/*<ion-button href="/rooms" expand="block">Rooms page</ion-button>*/}
+            <ion-header>
+                <ion-toolbar color="primary">
+                    Hello to an Amazin Banana Jack - by Team Capucin
+                </ion-toolbar>
+            </ion-header>,
+            <ion-content padding>
+                <ion-item>
+                    <ion-input required type="text" placeholder="username" value={this.username}></ion-input>
+                </ion-item>
+                <ion-button onClick={this.login} expand="block">Login</ion-button>
+                {/*<ion-button href="/rooms" expand="block">Rooms page</ion-button>*/}
             </ion-content>
         ];
+    }
+
+    login() {
+      loginApi.login('thomas').subscribe();
     }
 }
