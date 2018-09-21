@@ -1,34 +1,49 @@
 import { Component, Prop } from '@stencil/core';
+import { Room } from '../models/model'
 
 // import BackendApi from '../api';
 
 @Component({
-    tag: 'app-rooms',
-    styles: `
+    tag: 'app-rooms'
 
-    `,
 })
 export class AppRooms {
     @Prop({ connect: 'ion-router' }) nav: HTMLIonRouterElement;
+    @Prop() roomsList : Room[]=[
+      {id: 17, name: "Room n°1", players: null, bank: null, full: false},
+      {id: 25, name: "Room n°2", players: null, bank: null, full: false}
+    ];
 
     componentWillLoad() {
         // console.log('getRooms', BackendApi.getRooms());
     }
 
-    async redirectToRoom2() {
+    async goToRoom(id: number) {
+      console.log(id);
         const navCtrl: HTMLIonRouterElement = await (this.nav as any).componentOnReady();
-        navCtrl.push('/rooms/2')
+        navCtrl.push('/rooms/' + id)
     }
 
-    handleOnClick = () => this.redirectToRoom2();
+    handleOnClick = (roomId: number) => this.goToRoom(roomId);
 
     render() {
         return [
-          <app-header title="Rooms"></app-header>,
-          <ion-content padding>
-            Rooms page
-            <ion-button onClick={this.handleOnClick} expand="block">Go to room 2</ion-button>
-          </ion-content>
+            <ion-header>
+                <ion-toolbar color="primary">
+                    <ion-title>Rooms</ion-title>
+                </ion-toolbar>
+            </ion-header>,
+            <ion-content padding>
+                Liste des pages
+                <ul>
+                  {this.roomsList.map(room => (
+                    <li>
+                      <ion-button onClick={() => this.handleOnClick(room.id)}>Go to {room.name}</ion-button>
+                    </li>
+                  ))}
+
+                </ul>
+            </ion-content>
         ];
     }
 }

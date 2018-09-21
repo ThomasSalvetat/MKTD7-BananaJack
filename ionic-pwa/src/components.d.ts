@@ -12,13 +12,18 @@ import 'ionicons';
 import {
   Card,
   Player,
+  Room,
 } from './models/model';
 
 
 export namespace Components {
 
-  interface AppRooms {}
-  interface AppRoomsAttributes extends StencilHTMLAttributes {}
+  interface AppRooms {
+    'roomsList': Room[];
+  }
+  interface AppRoomsAttributes extends StencilHTMLAttributes {
+    'roomsList'?: Room[];
+  }
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
