@@ -1,5 +1,9 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, State } from '@stencil/core';
 import { Room } from '../models/model'
+import { Action, Store } from '@stencil/redux';
+import { RoomState } from '../reducers/rooms.reducer';
+import { roomApi } from '../singletons/singleton';
+import { tap } from 'rxjs/operators';
 
 // import BackendApi from '../api';
 
@@ -13,10 +17,26 @@ export class AppRooms {
       {id: 17, name: "Room n°1", players: null, bank: null, full: false},
       {id: 25, name: "Room n°2", players: null, bank: null, full: false}
     ];
+    @Prop({context: 'store'}) store: Store;
+    @State() rooms: Room[] = [];
+    updateRoomAction: Action;
 
-    componentWillLoad() {
-        // console.log('getRooms', BackendApi.getRooms());
-    }
+  componentWillLoad() {
+    this.store.mapDispatchToProps(this, {
+      updateRoomAction: (rooms: Room[]) => async dispatch => dispatch(RoomState.actions.update(rooms))
+    });
+
+    this.store.mapStateToProps(this, (state) => {
+      const {
+        roomsReducer: rooms
+      } = state;
+      return {
+        rooms
+      };
+    });
+
+    this.getRooms();
+  }
 
     async goToRoom(id: number) {
       console.log(id);
@@ -37,7 +57,7 @@ export class AppRooms {
                 Liste des pages
                 <section>
                 <ul  class="rooms">
-                  {this.roomsList.map(room => (
+                  {this.rooms.map(room => (
                     <li>
                       <div class="room">
                           <div class="name">
@@ -57,4 +77,12 @@ export class AppRooms {
             </ion-content>
         ];
     }
+
+  getRooms = () => {
+    roomApi.update()
+      .pipe(
+        tap((rooms) =>  this.updateRoomAction(rooms)),
+      )
+      .subscribe();
+  }
 }

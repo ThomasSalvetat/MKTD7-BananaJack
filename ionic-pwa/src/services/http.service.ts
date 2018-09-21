@@ -21,9 +21,20 @@ export class HttpService {
       .then(res => this.handle<T>(res));
   };
 
+  private getJson<T>(url: string): Promise<T> {
+    return fetch(url)
+      .then(res => this.handle<T>(res));
+  }
+
   post<T>(url: string, json: {}): Observable<T> {
     return fromPromise(
       this.postJson(url, json)
     );
+  }
+
+  get<T>(url: string): Observable<T> {
+    return fromPromise(
+      this.getJson(url)
+    )
   }
 }

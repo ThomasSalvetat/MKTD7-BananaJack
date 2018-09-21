@@ -1,5 +1,5 @@
-import {Component, Prop, State} from '@stencil/core';
-import {Player} from "../../models/model";
+import { Component, Prop, State } from '@stencil/core';
+import { Player } from '../../models/model';
 
 // import BackendApi from '../../api';
 
@@ -26,10 +26,6 @@ export class AppRoom {
         score: 12
       }
     ];
-
-    componentWillLoad() {
-        //console.log('getRooms', BackendApi.join(this.roomId, 'Fred'));
-    }
 
     render() {
         return [
