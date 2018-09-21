@@ -49,12 +49,8 @@ export namespace Components {
     'title'?: string;
   }
 
-  interface AppLogin {
-    'username': string;
-  }
-  interface AppLoginAttributes extends StencilHTMLAttributes {
-    'username'?: string;
-  }
+  interface AppLogin {}
+  interface AppLoginAttributes extends StencilHTMLAttributes {}
 
   interface PlayerHand {
     'player': Player;
