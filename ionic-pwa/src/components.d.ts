@@ -6,8 +6,12 @@
 
 import '@stencil/core';
 
+import '@stencil/redux';
 import '@ionic/core';
 import 'ionicons';
+import {
+  Card,
+} from './model';
 
 
 export namespace Components {
@@ -27,6 +31,20 @@ export namespace Components {
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
+
+  interface CardDetail {
+    'card': Card;
+  }
+  interface CardDetailAttributes extends StencilHTMLAttributes {
+    'card'?: Card;
+  }
+
+  interface CardsList {
+    'cards': Card[];
+  }
+  interface CardsListAttributes extends StencilHTMLAttributes {
+    'cards'?: Card[];
+  }
 }
 
 declare global {
@@ -35,6 +53,8 @@ declare global {
     'AppRoom': Components.AppRoom;
     'AppRooms': Components.AppRooms;
     'AppRoot': Components.AppRoot;
+    'CardDetail': Components.CardDetail;
+    'CardsList': Components.CardsList;
   }
 
   interface StencilIntrinsicElements {
@@ -42,6 +62,8 @@ declare global {
     'app-room': Components.AppRoomAttributes;
     'app-rooms': Components.AppRoomsAttributes;
     'app-root': Components.AppRootAttributes;
+    'card-detail': Components.CardDetailAttributes;
+    'cards-list': Components.CardsListAttributes;
   }
 
 
@@ -69,11 +91,25 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLCardDetailElement extends Components.CardDetail, HTMLStencilElement {}
+  var HTMLCardDetailElement: {
+    prototype: HTMLCardDetailElement;
+    new (): HTMLCardDetailElement;
+  };
+
+  interface HTMLCardsListElement extends Components.CardsList, HTMLStencilElement {}
+  var HTMLCardsListElement: {
+    prototype: HTMLCardsListElement;
+    new (): HTMLCardsListElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-login': HTMLAppLoginElement
     'app-room': HTMLAppRoomElement
     'app-rooms': HTMLAppRoomsElement
     'app-root': HTMLAppRootElement
+    'card-detail': HTMLCardDetailElement
+    'cards-list': HTMLCardsListElement
   }
 
   interface ElementTagNameMap {
@@ -81,6 +117,8 @@ declare global {
     'app-room': HTMLAppRoomElement;
     'app-rooms': HTMLAppRoomsElement;
     'app-root': HTMLAppRootElement;
+    'card-detail': HTMLCardDetailElement;
+    'cards-list': HTMLCardsListElement;
   }
 
 

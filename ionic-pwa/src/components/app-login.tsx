@@ -1,5 +1,4 @@
 import { Component } from '@stencil/core';
-import { card } from '../model';
 
 // import BackendApi from '../api';
 
