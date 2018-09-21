@@ -17,13 +17,6 @@ import {
 
 export namespace Components {
 
-  interface AppLogin {
-    'username': string;
-  }
-  interface AppLoginAttributes extends StencilHTMLAttributes {
-    'username'?: string;
-  }
-
   interface AppRooms {}
   interface AppRoomsAttributes extends StencilHTMLAttributes {}
 
@@ -51,6 +44,13 @@ export namespace Components {
     'title'?: string;
   }
 
+  interface AppLogin {
+    'username': string;
+  }
+  interface AppLoginAttributes extends StencilHTMLAttributes {
+    'username'?: string;
+  }
+
   interface PlayerHand {
     'player': Player;
   }
@@ -68,33 +68,27 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
-    'AppLogin': Components.AppLogin;
     'AppRooms': Components.AppRooms;
     'AppRoot': Components.AppRoot;
     'CardDetail': Components.CardDetail;
     'CardsList': Components.CardsList;
     'AppHeader': Components.AppHeader;
+    'AppLogin': Components.AppLogin;
     'PlayerHand': Components.PlayerHand;
     'AppRoom': Components.AppRoom;
   }
 
   interface StencilIntrinsicElements {
-    'app-login': Components.AppLoginAttributes;
     'app-rooms': Components.AppRoomsAttributes;
     'app-root': Components.AppRootAttributes;
     'card-detail': Components.CardDetailAttributes;
     'cards-list': Components.CardsListAttributes;
     'app-header': Components.AppHeaderAttributes;
+    'app-login': Components.AppLoginAttributes;
     'player-hand': Components.PlayerHandAttributes;
     'app-room': Components.AppRoomAttributes;
   }
 
-
-  interface HTMLAppLoginElement extends Components.AppLogin, HTMLStencilElement {}
-  var HTMLAppLoginElement: {
-    prototype: HTMLAppLoginElement;
-    new (): HTMLAppLoginElement;
-  };
 
   interface HTMLAppRoomsElement extends Components.AppRooms, HTMLStencilElement {}
   var HTMLAppRoomsElement: {
@@ -126,6 +120,12 @@ declare global {
     new (): HTMLAppHeaderElement;
   };
 
+  interface HTMLAppLoginElement extends Components.AppLogin, HTMLStencilElement {}
+  var HTMLAppLoginElement: {
+    prototype: HTMLAppLoginElement;
+    new (): HTMLAppLoginElement;
+  };
+
   interface HTMLPlayerHandElement extends Components.PlayerHand, HTMLStencilElement {}
   var HTMLPlayerHandElement: {
     prototype: HTMLPlayerHandElement;
@@ -139,23 +139,23 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
-    'app-login': HTMLAppLoginElement
     'app-rooms': HTMLAppRoomsElement
     'app-root': HTMLAppRootElement
     'card-detail': HTMLCardDetailElement
     'cards-list': HTMLCardsListElement
     'app-header': HTMLAppHeaderElement
+    'app-login': HTMLAppLoginElement
     'player-hand': HTMLPlayerHandElement
     'app-room': HTMLAppRoomElement
   }
 
   interface ElementTagNameMap {
-    'app-login': HTMLAppLoginElement;
     'app-rooms': HTMLAppRoomsElement;
     'app-root': HTMLAppRootElement;
     'card-detail': HTMLCardDetailElement;
     'cards-list': HTMLCardsListElement;
     'app-header': HTMLAppHeaderElement;
+    'app-login': HTMLAppLoginElement;
     'player-hand': HTMLPlayerHandElement;
     'app-room': HTMLAppRoomElement;
   }
