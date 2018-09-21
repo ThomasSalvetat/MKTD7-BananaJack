@@ -35,14 +35,25 @@ export class AppRooms {
             </ion-header>,
             <ion-content padding>
                 Liste des pages
-                <ul>
+                <section>
+                <ul  class="rooms">
                   {this.roomsList.map(room => (
                     <li>
-                      <ion-button onClick={() => this.handleOnClick(room.id)}>Go to {room.name}</ion-button>
+                      <div class="room">
+                          <div class="name">
+                              <h2>{room.name}</h2>
+                              <div class="players">Tata, Titi</div>
+                          </div>
+                          <div class="status ">2 / 4</div>
+                          <div class="action">
+                              <ion-button onClick={() => this.handleOnClick(room.id)} class="join">Join {room.name}</ion-button>
+                          </div>
+                      </div>
                     </li>
                   ))}
 
                 </ul>
+              </section>
             </ion-content>
         ];
     }
