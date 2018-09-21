@@ -9,12 +9,10 @@ import '@stencil/core';
 import '@stencil/redux';
 import '@ionic/core';
 import 'ionicons';
-<<<<<<< HEAD
 import {
   Card,
-} from './model';
-=======
->>>>>>> create login api service
+  Player,
+} from './models/model';
 
 
 export namespace Components {
@@ -31,7 +29,6 @@ export namespace Components {
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
-<<<<<<< HEAD
 
   interface CardDetail {
     'card': Card;
@@ -46,8 +43,27 @@ export namespace Components {
   interface CardsListAttributes extends StencilHTMLAttributes {
     'cards'?: Card[];
   }
-=======
->>>>>>> create login api service
+
+  interface AppHeader {
+    'title': string;
+  }
+  interface AppHeaderAttributes extends StencilHTMLAttributes {
+    'title'?: string;
+  }
+
+  interface PlayerHand {
+    'player': Player;
+  }
+  interface PlayerHandAttributes extends StencilHTMLAttributes {
+    'player'?: Player;
+  }
+
+  interface AppRoom {
+    'roomId': number;
+  }
+  interface AppRoomAttributes extends StencilHTMLAttributes {
+    'roomId'?: number;
+  }
 }
 
 declare global {
@@ -55,22 +71,22 @@ declare global {
     'AppLogin': Components.AppLogin;
     'AppRooms': Components.AppRooms;
     'AppRoot': Components.AppRoot;
-<<<<<<< HEAD
     'CardDetail': Components.CardDetail;
     'CardsList': Components.CardsList;
-=======
->>>>>>> create login api service
+    'AppHeader': Components.AppHeader;
+    'PlayerHand': Components.PlayerHand;
+    'AppRoom': Components.AppRoom;
   }
 
   interface StencilIntrinsicElements {
     'app-login': Components.AppLoginAttributes;
     'app-rooms': Components.AppRoomsAttributes;
     'app-root': Components.AppRootAttributes;
-<<<<<<< HEAD
     'card-detail': Components.CardDetailAttributes;
     'cards-list': Components.CardsListAttributes;
-=======
->>>>>>> create login api service
+    'app-header': Components.AppHeaderAttributes;
+    'player-hand': Components.PlayerHandAttributes;
+    'app-room': Components.AppRoomAttributes;
   }
 
 
@@ -92,7 +108,6 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
-<<<<<<< HEAD
   interface HTMLCardDetailElement extends Components.CardDetail, HTMLStencilElement {}
   var HTMLCardDetailElement: {
     prototype: HTMLCardDetailElement;
@@ -105,28 +120,44 @@ declare global {
     new (): HTMLCardsListElement;
   };
 
-=======
->>>>>>> create login api service
+  interface HTMLAppHeaderElement extends Components.AppHeader, HTMLStencilElement {}
+  var HTMLAppHeaderElement: {
+    prototype: HTMLAppHeaderElement;
+    new (): HTMLAppHeaderElement;
+  };
+
+  interface HTMLPlayerHandElement extends Components.PlayerHand, HTMLStencilElement {}
+  var HTMLPlayerHandElement: {
+    prototype: HTMLPlayerHandElement;
+    new (): HTMLPlayerHandElement;
+  };
+
+  interface HTMLAppRoomElement extends Components.AppRoom, HTMLStencilElement {}
+  var HTMLAppRoomElement: {
+    prototype: HTMLAppRoomElement;
+    new (): HTMLAppRoomElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-login': HTMLAppLoginElement
     'app-rooms': HTMLAppRoomsElement
     'app-root': HTMLAppRootElement
-<<<<<<< HEAD
     'card-detail': HTMLCardDetailElement
     'cards-list': HTMLCardsListElement
-=======
->>>>>>> create login api service
+    'app-header': HTMLAppHeaderElement
+    'player-hand': HTMLPlayerHandElement
+    'app-room': HTMLAppRoomElement
   }
 
   interface ElementTagNameMap {
     'app-login': HTMLAppLoginElement;
     'app-rooms': HTMLAppRoomsElement;
     'app-root': HTMLAppRootElement;
-<<<<<<< HEAD
     'card-detail': HTMLCardDetailElement;
     'cards-list': HTMLCardsListElement;
-=======
->>>>>>> create login api service
+    'app-header': HTMLAppHeaderElement;
+    'player-hand': HTMLPlayerHandElement;
+    'app-room': HTMLAppRoomElement;
   }
 
 

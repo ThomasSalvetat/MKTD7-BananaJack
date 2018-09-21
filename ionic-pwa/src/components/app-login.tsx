@@ -29,7 +29,7 @@ export class AppLogin {
                 <ion-item>
                     <ion-input required type="text" placeholder="username" value={this.username}></ion-input>
                 </ion-item>
-                <ion-button onClick={this.login} expand="block">Login</ion-button>
+                <ion-button href="/rooms" onClick={this.login} expand="block">Login</ion-button>
                 {/*<ion-button href="/rooms" expand="block">Rooms page</ion-button>*/}
             </ion-content>
         ];
@@ -37,6 +37,8 @@ export class AppLogin {
 
     login = () => {
       loginApi.login('thomas')
-        .subscribe(user => this.loginAction(user.name));
+        .subscribe(user => {
+          this.loginAction(user.name);
+        });
     }
 }

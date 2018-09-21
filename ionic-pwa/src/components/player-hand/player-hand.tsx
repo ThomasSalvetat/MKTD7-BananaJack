@@ -1,5 +1,5 @@
 import { Component, Prop } from '@stencil/core';
-import {Player} from "../../model";
+import {Player} from "../../models/model";
 
 // import BackendApi from '../api';
 
