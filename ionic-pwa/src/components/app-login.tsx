@@ -1,6 +1,7 @@
-import { loginApi } from '../singletons/singleton';
-
 import { Component, Prop } from '@stencil/core';
+import { Action, Store } from '@stencil/redux';
+import { UserState } from '../reducers/user.reducer';
+import { loginApi } from '../singletons/singleton';
 
 @Component({
     tag: 'app-login'
@@ -8,9 +9,13 @@ import { Component, Prop } from '@stencil/core';
 export class AppLogin {
 
     @Prop() username = '';
+    @Prop({context: 'store'}) store: Store;
+    loginAction: Action;
 
     componentWillLoad() {
-        // console.log('login', BackendApi.login('username'));
+      this.store.mapDispatchToProps(this, {
+        loginAction: (username: string) => async dispatch => dispatch(UserState.actions.login(username))
+      });
     }
 
     render() {
@@ -30,7 +35,8 @@ export class AppLogin {
         ];
     }
 
-    login() {
-      loginApi.login('thomas').subscribe();
+    login = () => {
+      loginApi.login('thomas')
+        .subscribe(user => this.loginAction(user.name));
     }
 }
