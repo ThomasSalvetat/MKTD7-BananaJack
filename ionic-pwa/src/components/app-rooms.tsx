@@ -24,15 +24,11 @@ export class AppRooms {
 
     render() {
         return [
-            <ion-header>
-                <ion-toolbar color="primary">
-                    <ion-title>Rooms</ion-title>
-                </ion-toolbar>
-            </ion-header>,
-            <ion-content padding>
-                Rooms page
-                <ion-button onClick={this.handleOnClick} expand="block">Go to room 2</ion-button>
-            </ion-content>
+          <app-header title="Rooms"></app-header>,
+          <ion-content padding>
+            Rooms page
+            <ion-button onClick={this.handleOnClick} expand="block">Go to room 2</ion-button>
+          </ion-content>
         ];
     }
 }

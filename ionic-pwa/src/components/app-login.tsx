@@ -14,17 +14,13 @@ export class AppLogin {
     }
     render() {
         return [
-            <ion-header>
-                <ion-toolbar color="primary">
-                    Hello to an Amazin Banana Jack - by Team Capucin
-                </ion-toolbar>
-            </ion-header>,
-            <ion-content padding>
-                <ion-item>
-                    <ion-input required type="text" placeholder="username" value={this.username}></ion-input>
-                </ion-item>
-                <ion-button expand="block">Login</ion-button>
-                {/*<ion-button href="/rooms" expand="block">Rooms page</ion-button>*/}
+          <app-header title="Login"></app-header>,,
+          <ion-content padding>
+            <ion-item>
+              <ion-input required type="text" placeholder="username" value={this.username}></ion-input>
+            </ion-item>
+            <ion-button expand="block">Login</ion-button>
+            {/*<ion-button href="/rooms" expand="block">Rooms page</ion-button>*/}
             </ion-content>
         ];
     }
