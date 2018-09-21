@@ -51,5 +51,5 @@ export interface RoomEvent {
 }
 
 export function card(code: string): Card {
-  return { code, image: `assets/${code}.png` };
+  return { code, image: `/assets/${code}.png` };
 }

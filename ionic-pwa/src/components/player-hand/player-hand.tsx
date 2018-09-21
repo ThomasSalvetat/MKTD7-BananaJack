@@ -1,5 +1,5 @@
 import { Component, Prop } from '@stencil/core';
-import {Player} from "../../models/model";
+import {card, Player} from "../../models/model";
 
 // import BackendApi from '../api';
 
@@ -20,7 +20,9 @@ export class PlayerHand {
         <div class="name">{this.player.name}</div>
         <div class="score">{this.player.score}</div>
         <div class="move"></div>
-        <div class="cards"></div>
+        <div class="cards">
+          <cards-list cards={[card('0S'),card('8D')]}></cards-list>
+        </div>
         <div class="actions"></div>
       </div>
     ];
