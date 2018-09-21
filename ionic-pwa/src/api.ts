@@ -1,4 +1,4 @@
-import { Player, Room, Action } from './model'
+import { Player, Room, Action } from './models/model'
 
 class BackendApi {
 

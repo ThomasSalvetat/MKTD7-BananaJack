@@ -11,7 +11,8 @@ import '@ionic/core';
 import 'ionicons';
 import {
   Card,
-} from './model';
+  Player,
+} from './models/model';
 
 
 export namespace Components {
@@ -42,6 +43,27 @@ export namespace Components {
   interface CardsListAttributes extends StencilHTMLAttributes {
     'cards'?: Card[];
   }
+
+  interface AppHeader {
+    'title': string;
+  }
+  interface AppHeaderAttributes extends StencilHTMLAttributes {
+    'title'?: string;
+  }
+
+  interface PlayerHand {
+    'player': Player;
+  }
+  interface PlayerHandAttributes extends StencilHTMLAttributes {
+    'player'?: Player;
+  }
+
+  interface AppRoom {
+    'roomId': number;
+  }
+  interface AppRoomAttributes extends StencilHTMLAttributes {
+    'roomId'?: number;
+  }
 }
 
 declare global {
@@ -51,6 +73,9 @@ declare global {
     'AppRoot': Components.AppRoot;
     'CardDetail': Components.CardDetail;
     'CardsList': Components.CardsList;
+    'AppHeader': Components.AppHeader;
+    'PlayerHand': Components.PlayerHand;
+    'AppRoom': Components.AppRoom;
   }
 
   interface StencilIntrinsicElements {
@@ -59,6 +84,9 @@ declare global {
     'app-root': Components.AppRootAttributes;
     'card-detail': Components.CardDetailAttributes;
     'cards-list': Components.CardsListAttributes;
+    'app-header': Components.AppHeaderAttributes;
+    'player-hand': Components.PlayerHandAttributes;
+    'app-room': Components.AppRoomAttributes;
   }
 
 
@@ -92,12 +120,33 @@ declare global {
     new (): HTMLCardsListElement;
   };
 
+  interface HTMLAppHeaderElement extends Components.AppHeader, HTMLStencilElement {}
+  var HTMLAppHeaderElement: {
+    prototype: HTMLAppHeaderElement;
+    new (): HTMLAppHeaderElement;
+  };
+
+  interface HTMLPlayerHandElement extends Components.PlayerHand, HTMLStencilElement {}
+  var HTMLPlayerHandElement: {
+    prototype: HTMLPlayerHandElement;
+    new (): HTMLPlayerHandElement;
+  };
+
+  interface HTMLAppRoomElement extends Components.AppRoom, HTMLStencilElement {}
+  var HTMLAppRoomElement: {
+    prototype: HTMLAppRoomElement;
+    new (): HTMLAppRoomElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-login': HTMLAppLoginElement
     'app-rooms': HTMLAppRoomsElement
     'app-root': HTMLAppRootElement
     'card-detail': HTMLCardDetailElement
     'cards-list': HTMLCardsListElement
+    'app-header': HTMLAppHeaderElement
+    'player-hand': HTMLPlayerHandElement
+    'app-room': HTMLAppRoomElement
   }
 
   interface ElementTagNameMap {
@@ -106,6 +155,9 @@ declare global {
     'app-root': HTMLAppRootElement;
     'card-detail': HTMLCardDetailElement;
     'cards-list': HTMLCardsListElement;
+    'app-header': HTMLAppHeaderElement;
+    'player-hand': HTMLPlayerHandElement;
+    'app-room': HTMLAppRoomElement;
   }
 
 

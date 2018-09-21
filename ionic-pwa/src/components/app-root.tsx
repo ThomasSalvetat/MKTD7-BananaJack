@@ -1,4 +1,4 @@
-import { Component, Prop, Listen } from '@stencil/core';
+import { Component, Listen, Prop } from '@stencil/core';
 import { Store } from '@stencil/redux';
 import { bananaStore } from '../store';
 
@@ -10,11 +10,9 @@ export class AppRoot {
 
   @Prop({context: 'store'}) store: Store;
 
-
   componentWillLoad() {
     this.store.setStore(bananaStore({}));
   }
-
 
   /**
    * Handle service worker updates correctly.

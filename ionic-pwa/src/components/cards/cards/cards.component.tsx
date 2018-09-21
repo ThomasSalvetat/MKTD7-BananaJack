@@ -1,5 +1,5 @@
 import { Component, Prop } from '@stencil/core';
-import { Card } from '../../../model';
+import { Card } from '../../../models/model';
 
 @Component({
   tag: 'cards-list',
