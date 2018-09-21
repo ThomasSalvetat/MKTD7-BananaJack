@@ -1,8 +1,5 @@
-import {Component, Prop, State} from '@stencil/core';
-import {Player} from "../../models/model";
-import { loginApi } from '../../singletons/singleton';
-import { mergeMap, tap } from 'rxjs/operators';
-import { fromPromise } from 'rxjs/internal-compatibility';
+import { Component, Prop, State } from '@stencil/core';
+import { Player } from '../../models/model';
 
 // import BackendApi from '../../api';
 
@@ -29,10 +26,6 @@ export class AppRoom {
         score: 12
       }
     ];
-
-    componentWillLoad() {
-        //console.log('getRooms', BackendApi.join(this.roomId, 'Fred'));
-    }
 
     render() {
         return [
@@ -64,13 +57,4 @@ export class AppRoom {
             </ion-content>
         ];
     }
-
-  getRooms = () => {
-    roomsApi.getList(id, )
-      .pipe(
-        tap((user) =>  this.loginAction(user)),
-        mergeMap(() => fromPromise(this.redirectToRoom()))
-      )
-      .subscribe();
-  }
 }

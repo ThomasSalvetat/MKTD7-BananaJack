@@ -48,7 +48,6 @@ export class AppLogin {
     }
 
     login = () => {
-      console.log('beroucry le fou ', this.username);
       loginApi.login(this.username)
         .pipe(
           tap((user) =>  this.loginAction(user)),
